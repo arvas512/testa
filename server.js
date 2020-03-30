@@ -22,7 +22,6 @@ var async        = require('async');
 
 var Entities	 = require('html-entities').AllHtmlEntities;
 var entities	 = new Entities();
-var he = require('he');
 
 
 
