@@ -16,8 +16,7 @@
   background-size: cover;
 }
 
-.parallax { background-image: url('mati.jpg');  
-            height: 300px; }
+.parallax { background-image: url('mati.jpg'); }
 
 .parallax1 {
 /*  animation-name: example1;*/
@@ -27,6 +26,11 @@
   animation-iteration-count: infinite;
   
   height: 200px; line-height: 22px; 
+  background-image: url('mati.jpg'); 
+}
+
+.parallax2 {
+/*  line-height: 22px; */
   background-image: url('mati.jpg'); 
 }
 
@@ -57,31 +61,26 @@
 
 
 @media screen and                        (min-width: 850px )  {
-  .parallax               { height: 300px; }   
   .middleZone, .parallax1 { height: 200px; line-height: 22px;}
   .middleZone             { font-size: 30px; }
 }
 
 @media screen and (max-width: 850px) and (min-width: 650px) {
-  .parallax               { height: 300px; }   
   .middleZone, .parallax1 { height: 175px; line-height: 20px;}
   .middleZone { font-size: 28px; }
 }
 
 @media screen and (max-width: 650px) and (min-width: 550px)  {
-  .parallax               { height: 300px; }   
   .middleZone, .parallax1 { height: 150px; line-height: 15px;}
   .middleZone  { font-size: 24px;  }
 }
 
 @media screen and (max-width: 550px) and (min-width: 400px)  {
-  .parallax               { height: 300px; }   
   .middleZone, .parallax1 { height: 125px; line-height: 12px;}
   .middleZone  { font-size: 20px; }
 }
 
 @media screen and (max-width: 400px)   {
-  .parallax               { height: 300px; }   
   .middleZone, .parallax1 { height: 100px; line-height: 12px;}
   .middleZone  { font-size: 14px; }
 }
@@ -98,20 +97,16 @@
 
 
 
-<div class="parallax" style="color: green" > 
-<span id="demo">     </span>   </div>
+<div class="parallax" style="color: yellow;  height: 300px; " > 
+<span id="demo"></span>
+</br>   
+<span id="demo1"></span>   
+</div>
 
 <script>
 function myFunction() {
-  var w = window.outerWidth;
-  var h = window.outerHeight;
-  var txt = "Window size: width=" + w + ", height=" + h;
-  document.getElementById("demo").innerHTML = txt;
-}
-
-
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Window size: width=" + window.innerWidth  + ", height=" + window.innerHeight ; 
+  document.getElementById("demo").innerHTML = "Window size: width=" + window.innerWidth  + ", height=" + window.innerHeight;
+  document.getElementById("demo1").innerHTML = "URL:" + window.location;   
 }
 </script>
 
@@ -126,9 +121,48 @@ function myFunction() {
 
 
 <div class="parallax1"> </div>
+<div class="parallax" style="height: 100px;"> </div>
+
+
+
+
+
+
+
+
+
+
+<div id="forma" style="position: absolute; background-color: rgba( 0, 0, 0, 0.5); color:  rgba( 255, 255, 255,  1);">
+    <label style="background-color: rgba( 0, 0, 0, 0.5); color:  rgba( 255, 255, 255,  1);">Κλειδί Πρόσκλησης</label>
+    <input type='text' size='30' id='invitationTF' 
+           onkeydown='if (event.keyCode == 13) { SendInvitation(); return false; }'>
+
+ <p> Εισέρχεστε για πρώτη φορά οπότε πρέπει να ορίσετε </p>
+    
+    <label >Κλειδί Ταυτοποίησης</label>
+    <input type="password" size='30' id="passwordTF" 
+           onkeydown='if (event.keyCode == 13) { SendPassword(); return false; }'>
+
+    
+ <p> Επιβεβαιώστε    </p>
+    <label >Κλειδί Ταυτοποίησης</label>
+    <input type="password" size='30' id="password1TF" 
+           onkeydown='if (event.keyCode == 13) { SendPassword1(); return false; }'>
+    <br>
+</div>
+
+
+<div class="parallax1"> </div>
+
+
+<script>
+ function SendInvitation() 
+ { console.log( "************ SendIdentity *************"); 
+   xhttp.open('POST', 'IdentityFromPage', true); xhttp.send( invitationTF.value ); }
+</script>
+
 
 <div class="parallax" > </div>
-
 
 
 </body>
