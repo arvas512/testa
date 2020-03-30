@@ -135,7 +135,7 @@ OnGetSendFile( '/',             {file: './pages/index.html'});
 
 OnGetSendFile( '/logo-ece.png', {file: './pages/logo-ece.png' }); 
 
-OnGetSendFile( '/mati.png', {file: './pages/mati.png' }); 
+//OnGetSendFile( '/mati.png', {file: './pages/mati.png' }); 
 
 OnGetSendFile( '/pageOut',  {file: './pages/out.html'}); 
 
