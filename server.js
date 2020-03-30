@@ -4,11 +4,11 @@ let fs = require('fs-extra');
 let HttpDispatcher = require('httpdispatcher');
 let dispatcher     = new HttpDispatcher(); 
 
-dispatcher.setStaticDirname('static');
-dispatcher.setStatic('/resources');
+/*dispatcher.setStaticDirname('static');
+dispatcher.setStatic('/resources');*/
     
-/*dispatcher.setStaticDirname('.');
-dispatcher.setStatic('resources');*/
+dispatcher.setStaticDirname('.');
+dispatcher.setStatic('resources');
  
 function OnGetSendFile( str1, arg)
 { dispatcher.onGet( str1, 
