@@ -7,7 +7,7 @@
     "httpdispatcher": "^2.1.2",
     "fs-extra": "^9.0.0",
     "querystring": "0.2.0",
-    "request": ">1.x",
+    "request-compose": "1.2.3",
     "iconv-lite": "0.5.1",
     "cheerio": "1.0.0-rc.3",
     "events": ">1.x",
