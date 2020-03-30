@@ -1,5 +1,5 @@
 let http = require('http');
-/*let fs = require('fs');*/
+
 let fs = require('fs-extra'); 
 let HttpDispatcher = require('httpdispatcher');
 let dispatcher     = new HttpDispatcher(); 
@@ -16,6 +16,12 @@ function OnGetSendFile( str1, arg)
 OnGetSendFile( '/',         {file: './pages/index.html'}); 
 OnGetSendFile( '/mati.jpg', {file: './pages/mati.jpg' }); 
 
+dispatcher.onPost( '/IdentityFromPage', 
+                   function(req, res) 
+                   { var arg = { file: 'pages/PageSeven.html'}; 
+		     console.log( 'MPHKE  ' +  req.body);
+		     res.writeHead( 200, {'Content-Type': 'text/html; charset=utf-8'});
+                     fs.createReadStream(  'pages/PageSeven.html').pipe(res);  });
 
 
 function handleRequest(req, res)
@@ -26,7 +32,6 @@ function handleRequest(req, res)
 
 const PORT=8080; 
 var server = http.createServer( handleRequest); 
-//server.listen( PORT, '127.0.0.1', function(){ console.log('Server listening on: http://localhost:%s', PORT); });
 server.listen( PORT, function(){ console.log('Server listening on: http://localhost:%s', PORT); });
 //server.listen( PORT); 
 	       
