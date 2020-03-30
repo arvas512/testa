@@ -635,7 +635,7 @@ function setInitCheckBoxes()
 
 //fs.createWriteStream('./pages/out.html' ).end();
 EmptyDirs(); 
-const PORT=3000; 
+const PORT=8080; 
 fs.readFile( './pages/InitialValues.txt', 'utf8', 
              function(err, data) 
 	     { if (err) return console.log( 'No InitialValues.txt file: ' + err);
