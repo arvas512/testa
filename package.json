@@ -1,0 +1,33 @@
+{
+  "name": "testa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "httpdispatcher": "^2.1.2",
+    "fs-extra": "^9.0.0"
+"querystring": ">1.x", 
+"request": ">1.x", 
+"iconv-lite": ">1.x", 
+"cheerio": ">1.x", 
+"events": ">1.x", 
+"async": ">1.x", 
+"html-entities": ">1.x",  
+  },
+"engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": 
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/arvas512/testa.git"
+  },
+  "author": "alabama",
+  "license": "ISC", 
+  "bugs": {},
+  "homepage": "http://github.com/arvas512/testa.git"
+}
