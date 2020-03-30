@@ -10,7 +10,13 @@ var dispatcher     = new HttpDispatcher();
 
 var fs           = require('fs-extra'); 
 var qs           = require('querystring');
-var request      = require('request'); 
+
+//var request      = require('request'); 
+var compose = require('request-compose')
+var request = compose.Request
+var response = compose.Response
+
+
 var iconv        = require('iconv-lite');
 //var repl        = require('stream-replace');
 var cheerio      = require('cheerio');
@@ -287,7 +293,7 @@ function CollectHtmls( htmlsBuffer, res)
      		        commfileName = './pages/comhtmls/' + padi + '.html',  
      			fileName_  = './pages/htmls_/' + padi + '.html'; 
  		    request( { url: url, encoding: null, timeout: 8000 }, 
-     			     function (error, response, body) 
+     			     function (error, resp, body) 
      			     { if(error ) 
      			       { myEvent.emit( 'End', ii, res);  
      	                         return console.log( "Couldn't get page %d because of %s", ii, error);}
@@ -647,10 +653,10 @@ setInitCheckBoxes();
 
 
 
-function handleRequest(request, response)
+function handleRequest(req, res)
 { try 
-  { if( request.url !== '/progress' && request.url !== '/progress1') console.log('Got a request ' + request.url);
-    if (request != undefined ) dispatcher.dispatch(request, response); } 
+  { if( req.url !== '/progress' && req.url !== '/progress1') console.log('Got a req ' + req.url);
+    if (req != undefined ) dispatcher.dispatch(req, res); } 
   catch(err) 
   { console.log(err); }}
 
