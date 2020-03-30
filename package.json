@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "dependencies": {},
+  "dependencies": {
+    "fs-extra": "^9.0.0"
+  },
   "engine": {
     "node": "*",
     "npm": "*"
