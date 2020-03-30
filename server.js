@@ -1,5 +1,6 @@
 let http = require('http');
-let fs = require('fs');
+/*let fs = require('fs');*/
+let fs = require('fs-extra'); 
 
  
 let SF = ( resp,  fil) => 
