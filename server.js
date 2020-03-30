@@ -7,7 +7,7 @@ let dispatcher     = new HttpDispatcher();
 /*dispatcher.setStaticDirname('static');
 dispatcher.setStatic('/resources');*/
     
-dispatcher.setStaticDirname('');
+//dispatcher.setStaticDirname('');
 dispatcher.setStatic('resources');
  
 function OnGetSendFile( str1, arg)
@@ -21,18 +21,17 @@ function OnGetSendFile( str1, arg)
 OnGetSendFile( '/',         {file: './pages/index.html'}); 
 OnGetSendFile( '/mati.jpg', {file: './pages/mati.jpg' }); 
 
-function handleRequest(request, response)
+function handleRequest(req, res)
 { try 
-  { if( request.url !== '/progress' && request.url !== '/progress1') console.log('Got a request ' + request.url);
-    if (request != undefined ) dispatcher.dispatch(request, response); } 
+  { if (req != undefined ) dispatcher.dispatch( req, res); } 
   catch(err) 
   { console.log(err); }}
 
-var server = http.createServer(handleRequest); 
-
 const PORT=8080; 
-server.listen( PORT, '127.0.0.1', 
-               function(){ console.log('Server listening on: http://localhost:%s', PORT); });
+var server = http.createServer( handleRequest); 
+//server.listen( PORT, '127.0.0.1', function(){ console.log('Server listening on: http://localhost:%s', PORT); });
+server.listen( PORT); 
+	       
 
 
 
