@@ -2,7 +2,7 @@
   "name": "testa",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.js", 
   "dependencies": {
     "httpdispatcher": "^2.1.2",
     "fs-extra": "^9.0.0",
