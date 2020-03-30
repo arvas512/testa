@@ -13,7 +13,7 @@ let handleRequest = (req, resp) => {
 //  console.log('Got a request ' + req.url);
   resp.writeHead(200, { 'Content-Type': 'text/html' });
        if ( req.url==='/')	    SF( resp, './pages/index.html')
-  else if ( req.url==='/mati.png')  SF( resp, './pages/mati.png'  )
+  else if ( req.url==='/mati.jpg')  SF( resp, './pages/mati.jpg'  )
 };
  
 http.createServer( handleRequest).listen(8080);
