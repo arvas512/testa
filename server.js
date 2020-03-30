@@ -3,7 +3,7 @@ let fs = require('fs');
 
  
 let SF = ( resp, fil) => 
-{ fs.readFile( fil,'utf8', function (error, data) 
+{ fs.readFile( fil, function (error, data) 
   { if (error) { resp.writeHead(404); resp.write('Whoops! File not found!'); } 
     else       { resp.write(data); }
     resp.end(); }); }
