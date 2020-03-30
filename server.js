@@ -4,10 +4,6 @@ let fs = require('fs-extra');
 let HttpDispatcher = require('httpdispatcher');
 let dispatcher     = new HttpDispatcher(); 
 
-/*dispatcher.setStaticDirname('static');
-dispatcher.setStatic('/resources');*/
-    
-//dispatcher.setStaticDirname('');
 dispatcher.setStatic('resources');
  
 function OnGetSendFile( str1, arg)
@@ -29,8 +25,8 @@ function handleRequest(req, res)
 
 const PORT=8080; 
 var server = http.createServer( handleRequest); 
-//server.listen( PORT, '127.0.0.1', function(){ console.log('Server listening on: http://localhost:%s', PORT); });
-server.listen( PORT); 
+server.listen( PORT, '127.0.0.1', function(){ console.log('Server listening on: http://localhost:%s', PORT); });
+//server.listen( PORT); 
 	       
 
 
