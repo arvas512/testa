@@ -1,0 +1,22 @@
+{
+  "name": "testa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {},
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/arvas512/testa.git"
+  },
+  "author": "alabama",
+  "license": "ISC",
+  "bugs": {},
+  "homepage": "http://github.com/arvas512/testa.git"
+}
