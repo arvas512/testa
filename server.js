@@ -13,9 +13,10 @@ function OnGetSendFile( str1, arg)
                       if( arg.file) fs.createReadStream( arg.file).pipe(res);
 		      else          res.end( arg.str);        });}
 
-
 OnGetSendFile( '/',         {file: './pages/index.html'}); 
 OnGetSendFile( '/mati.jpg', {file: './pages/mati.jpg' }); 
+
+
 
 function handleRequest(req, res)
 { try 
@@ -25,7 +26,8 @@ function handleRequest(req, res)
 
 const PORT=8080; 
 var server = http.createServer( handleRequest); 
-server.listen( PORT, '127.0.0.1', function(){ console.log('Server listening on: http://localhost:%s', PORT); });
+//server.listen( PORT, '127.0.0.1', function(){ console.log('Server listening on: http://localhost:%s', PORT); });
+server.listen( PORT, function(){ console.log('Server listening on: http://localhost:%s', PORT); });
 //server.listen( PORT); 
 	       
 
