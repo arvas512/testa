@@ -7,7 +7,7 @@ let dispatcher     = new HttpDispatcher();
 /*dispatcher.setStaticDirname('static');
 dispatcher.setStatic('/resources');*/
     
-dispatcher.setStaticDirname('.');
+dispatcher.setStaticDirname('');
 dispatcher.setStatic('resources');
  
 function OnGetSendFile( str1, arg)
