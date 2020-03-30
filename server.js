@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 var http         = require('http');
 var https        = require('https');
 
@@ -29,7 +31,7 @@ function Vocabulary( args)
   if( args && args.lexh_regx) this.lexh_regx = args.lexh_regx; 
   else
   { this.elaxista_grammata =  (args && args.elaxista_grammata)?+args.elaxista_grammata:1;
-    this.lexh            =  (args.lexh)?args.lexh:'[a-zÎ±-Ï‰]';
+    this.lexh            =  (args.lexh)?args.lexh:'[a-zá-ù]';
     this.lexh_regx   =  new RegExp( this.lexh +'{' +this.elaxista_grammata +',' +this.megista_grammata +'}', 'g'); }
   this.Vocabs            =  []; this.VocabsWords       =  []; 
   for( var i=0; i<this.megista_grammata; this.Vocabs[i]={}, this.VocabsWords[i]=[0, 0], i++);
@@ -154,7 +156,7 @@ function create_SearchWordsVersions( strs)
   keno       = '0-9,._!?;\s-';
   elaxista_grammata = 2; megista_grammata=50; 
 //  lexh = '[^' + keno + ']{' + elaxista_grammata + ',' + megista_grammata + '}'; 
-  lexh = '[a-zÎ±-Ï‰]'
+  lexh = '[a-zá-ù]'
   lexh_regx = new RegExp( lexh + '{' + elaxista_grammata + ',' + megista_grammata + '}' , 'g'); 
   
   telos_zhtoymenhs_lexhs = 0; 
@@ -469,19 +471,19 @@ dispatcher.onPost( '/myScroll',
 
 function convertor2small(str)
 { //console.log( str )
-  return str.replace( /[ABCDEFGHIGKLMNOPQRSTUVWXYZÎ‘Î†Î’Î“Î”Î•ÎˆÎ–Î—Î‰Î˜Î™ÎŠÎªÎšÎ›ÎœÎÎžÎŸÎŒÎ Î¡Î£Î¤Î¥ÎŽÎ«Î¦Î§Î¨Î©ÎÎ¬Î­Î®Î¯ÏŠÎÏŒÏÏ‹Î°ÏŽÏ‚]/g, function (m) 
+  return str.replace( /[ABCDEFGHIGKLMNOPQRSTUVWXYZÁ¶ÂÃÄÅ¸ÆÇ¹ÈÉºÚÊËÌÍÎÏ¼ÐÑÓÔÕ¾ÛÖ×ØÙ¿ÜÝÞßúÀüýûàþò]/g, function (m) 
        { //console.log( '************************************' + m); 
          return { 'A':'a', 'B':'b', 'C':'c', 'D':'d', 'E':'e', 'F':'f', 'G':'g', 'H':'h', 
 	 	  'I':'i', 'J':'j', 'K':'k', 'L':'l', 'M':'m', 'N':'n', 'O':'o', 'P':'p', 
 	 	  'Q':'q', 'R':'r', 'S':'s', 'T':'t', 'U':'u', 'V':'v', 'W':'w', 'X':'x', 
 	 	  'Y':'y', 'Z':'z', 
-	 	  'Î‘':'Î±', 'Î†':'Î±', 'Î’':'Î²', 'Î“':'Î³', 'Î”':'Î´', 'Î•':'Îµ', 'Îˆ':'Îµ',
-	 	  'Î–':'Î¶', 'Î—':'Î·', 'Î‰':'Î·', 'Î˜':'Î¸', 'Î™':'Î¹', 'ÎŠ':'Î¹', 'Îª':'Î¹',
-	 	  'Îš':'Îº', 'Î›':'Î»', 'Îœ':'Î¼', 'Î':'Î½', 'Îž':'Î¾', 'ÎŸ':'Î¿', 'ÎŒ':'Î¿',
-	 	  'Î ':'Ï€', 'Î¡':'Ï', 'Î£':'Ïƒ', 'Î¤':'Ï„', 'Î¥':'Ï…', 'ÎŽ':'Ï…', 'Î«':'Ï…',
-	 	  'Î¦':'Ï†', 'Î§':'Ï‡', 'Î¨':'Ïˆ', 'Î©':'Ï‰', 'Î':'Ï‰', 
-	 	  'Î¬':'Î±', 'Î­':'Îµ', 'Î®':'Î·', 'Î¯':'Î¹', 'ÏŠ':'Î¹', 'Î':'Î¹', 
-         	  'ÏŒ':'Î¿', 'Ï':'Ï…', 'Ï‹':'Ï…', 'Î°':'Ï…', 'ÏŽ':'Ï‰', 'Ï‚':'Ïƒ', }[m]; }); }
+	 	  'Á':'á', '¶':'á', 'Â':'â', 'Ã':'ã', 'Ä':'ä', 'Å':'å', '¸':'å',
+	 	  'Æ':'æ', 'Ç':'ç', '¹':'ç', 'È':'è', 'É':'é', 'º':'é', 'Ú':'é',
+	 	  'Ê':'ê', 'Ë':'ë', 'Ì':'ì', 'Í':'í', 'Î':'î', 'Ï':'ï', '¼':'ï',
+	 	  'Ð':'ð', 'Ñ':'ñ', 'Ó':'ó', 'Ô':'ô', 'Õ':'õ', '¾':'õ', 'Û':'õ',
+	 	  'Ö':'ö', '×':'÷', 'Ø':'ø', 'Ù':'ù', '¿':'ù', 
+	 	  'Ü':'á', 'Ý':'å', 'Þ':'ç', 'ß':'é', 'ú':'é', 'À':'é', 
+         	  'ü':'ï', 'ý':'õ', 'û':'õ', 'à':'õ', 'þ':'ù', 'ò':'ó', }[m]; }); }
 		  
 
 dispatcher.onPost( '/WordDist',  
