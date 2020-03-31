@@ -154,6 +154,10 @@
  var winWidth   = window.innerWidth  || document.documentElement.clientWidth  || document.body.clientWidth, 
      winHeight  = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;   
 
+ var xhttp;
+ if (window.XMLHttpRequest) xhttp = new XMLHttpRequest(); 
+ else xhttp = new ActiveXObject('Microsoft.XMLHTTP');  
+
  function myFunction() {
  document.getElementById("demo").innerHTML = "Window size: width=" + winWidth + ", height=" + winHeight;
  document.getElementById("demo1").innerHTML = server;   
