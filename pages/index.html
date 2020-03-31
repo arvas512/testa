@@ -103,12 +103,6 @@
 <span id="demo1"></span>   
 </div>
 
-<script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Window size: width=" + window.innerWidth  + ", height=" + window.innerHeight;
-  document.getElementById("demo1").innerHTML = "URL:" + window.location;   
-}
-</script>
 
 
 
@@ -122,10 +116,6 @@ function myFunction() {
 
 <div class="parallax1"> </div>
 <div class="parallax" style="height: 100px;"> </div>
-
-
-
-
 
 
 
@@ -153,16 +143,27 @@ function myFunction() {
 
 
 <div class="parallax1"> </div>
+<div class="parallax" > </div>
+
+
+
 
 
 <script>
- function SendInvitation() 
+ const server = window.location + ":8080"; 
+ var winWidth   = window.innerWidth  || document.documentElement.clientWidth  || document.body.clientWidth, 
+     winHeight  = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;   
+
+ function myFunction() {
+ document.getElementById("demo").innerHTML = "Window size: width=" + winWidth + ", height=" + winHeight;
+ document.getElementById("demo1").innerHTML = server;   
+}
+
+
+function SendInvitation() 
  { console.log( "************ SendIdentity *************"); 
    xhttp.open('POST', 'IdentityFromPage', true); xhttp.send( invitationTF.value ); }
 </script>
-
-
-<div class="parallax" > </div>
 
 
 </body>
