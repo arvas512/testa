@@ -14,18 +14,20 @@ function OnGetSendFile( str1, arg)
 		      else          res.end( arg.str);        });}
 
 OnGetSendFile( '/',         {file: './pages/index.html'}); 
-OnGetSendFile( '/mati.jpg', {file: './pages/mati.jpg' }); 
+OnGetSendFile( '/mati.jpg', {file: './pages/mati.jpg' });
+OnGetSendFile( '/InitialFilters.txt', {file: './pages/InitialFilters.txt' });
+ 
 
 dispatcher.onPost( '/IdentityFromPage', 
                    function(req, res) 
                    { var arg = { file: 'pages/PageSeven.html'}; 
-		     console.log( 'MPHKE  ' +  req.body);
-		     res.writeHead( 200, {'Content-Type': 'text/html; charset=utf-8'});
-                     fs.createReadStream(  'pages/PageSeven.html').pipe(res);  });
+		     fs.createWriteStream( './pages/InitialFilters.txt').write( "Test string " + req.body);
+		     res.writeHead( 200, {'Content-Type': 'text/html; charset=utf-8'}); }); 
 
 
 function handleRequest(req, res)
-{ try 
+{ console.log('Got a request ' + req.url);
+  try 
   { if (req != undefined ) dispatcher.dispatch( req, res); } 
   catch(err) 
   { console.log(err); }}
